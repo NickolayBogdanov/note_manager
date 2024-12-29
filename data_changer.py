@@ -5,5 +5,3 @@ issue_date = input("Дата истечения заметки в формате
 issue_date = (datetime.datetime.strptime(issue_date, "%d-%m-%Y")) # конвертируем дату в объект
 temp_created_date = (created_date.strftime("%d-%m")) # выводимая пользователю информация в удобном формате
 temp_issue_date = (datetime.date.strftime(issue_date, "%d-%m")) # выводимая пользователю информация в удобном формате
-print(temp_created_date)
-print(temp_issue_date)

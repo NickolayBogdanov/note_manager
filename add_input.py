@@ -1,8 +1,11 @@
 username = input('введите ваше имя: ')
-subtitle1 = input('введите заголовок: ')
-subtitle2 = input('введите заголовок 2: ')
-subtitle3 = input('введите заголовок 3: ')
-content = input('введите текст заметки: ')
+title = input('введите заголовок: ')
+subtitle1 = input('введите подзаголовок 1: ')
+subtitle2 = input('введите подзаголовок 2: ')
+subtitle3 = input('введите подзаголовок 3: ')
+content1 = input('введите текст заметки: ')
+content2 = input('введите текст заметки: ')
+content3 = input('введите текст заметки: ')
 status = input('введите статус заметки: ')
 
 from note_manager.data_changer import created_date

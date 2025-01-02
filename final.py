@@ -1,14 +1,11 @@
-from note_manager.add_input import username, content, status
-from note_manager.add_list import title
-from note_manager.data_changer import created_date, issue_date
+from note_manager.add_input import username, status, title, subtitle1, subtitle2, subtitle3, subcontent1, subcontent2, subcontent3
+from note_manager.add_list import titles
+from note_manager.data_changer import temp_created_date, temp_issue_date
+# импорт данных из других фаилов программы
 
-
-note = [
-    username,
-    title,
-    content,
-    status,
-    created_date,
-    issue_date
-]
+content = {subtitle1: subcontent1, subtitle2: subcontent2, subtitle3: subcontent3}
+note = {
+    username: titles,
+    title: (content, status, temp_created_date, temp_issue_date)
+} # сбор всех данных в библиотеку
 print(note)

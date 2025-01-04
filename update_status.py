@@ -9,7 +9,7 @@ while True:
     if  status != status_base.get("1") and status != status_base.get("2") and status != status_base.get("3"):
         status_base = {"1": "Выполнено", "2": "В процессе", "3": "Отложено"}
         print("неверно введено значение")
-    if status == status_base.get("1") or status == status_base.get("2") or status == status_base.get("3"):
+    else:5
         break
 
 print("Стаус успешно изменен, текущий статус: ", (status))

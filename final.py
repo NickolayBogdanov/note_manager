@@ -4,14 +4,14 @@ from note_manager.data_changer import temp_created_date, temp_issue_date
 
 note = [
     username,
+    titles,
     {title: (
         content,
         status,
         temp_created_date,
         temp_issue_date
         )
-    },
-    titles
+    }
 ]
 
 print(note)

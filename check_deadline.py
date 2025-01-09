@@ -1,8 +1,7 @@
 import datetime
 
-created_date = datetime.datetime.today() # текущая дата
-print(f"Дата создания заметки: {created_date.strftime("%d-%m-%Y")}")  # выводим дату в нужный формат
-temp_created_date = (f"Дата создания заметки: {created_date.strftime("%d-%m")}")
+today_date = datetime.datetime.today() # текущая дата
+print(f"Дата создания заметки: {today_date.strftime("%d-%m-%Y")}")  # выводим дату в нужный формат
 # выводимая пользователю информация в удобном формате
 
 while True:
@@ -16,8 +15,8 @@ while True:
         print("Неверный формат, попробуйте снова.")
 
 
-def scss():
-    dead_line = issue_date - created_date
+def scss(): # функция сравнения даты создания и даты истечения заметки
+    dead_line = issue_date - today_date
     if dead_line.days == 1:
         print(f"До истечения заметки осталось {dead_line.days} день.")
     if dead_line.days == 2 or dead_line == 3 or dead_line == 4:

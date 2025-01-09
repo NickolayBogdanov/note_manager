@@ -2,14 +2,11 @@ import datetime
 
 today_date = datetime.datetime.today() # текущая дата
 print(f"Дата создания заметки: {today_date.strftime("%d-%m-%Y")}")  # выводим дату в нужный формат
-# выводимая пользователю информация в удобном формате
 
 while True:
     try:
         issue_date = input("Введите дату истечения заметки в формате \"дд-мм-гггг\": ")# получаем от пользователя дату
         issue_date = (datetime.datetime.strptime(issue_date, "%d-%m-%Y"))  # конвертируем дату в объект
-        temp_issue_date = f"Дата создания заметки: {issue_date.strftime("%d-%m")}"
-        # выводимая пользователю информация в удобном формате
         break
     except (ValueError):
         print("Неверный формат, попробуйте снова.")

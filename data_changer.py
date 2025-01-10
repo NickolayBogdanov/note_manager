@@ -11,7 +11,7 @@ while True:
     except (ValueError):
         print("Неверный формат, попробуйте снова.")
 temp_created_date = f"дата создания заметки: {created_date.strftime('%d-%m')}" # выводимая пользователю информация в удобном формате
-temp_issue_date = f"дата создания заметки: {issue_date.strftime('%d-%m')}" # выводимая пользователю информация в удобном формате
+temp_issue_date = f"дата истечения заметки: {issue_date.strftime('%d-%m')}" # выводимая пользователю информация в удобном формате
 
 print(created_date)
 print(issue_date)

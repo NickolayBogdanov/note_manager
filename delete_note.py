@@ -21,7 +21,7 @@ notes = [
 ]
 
 def delete():
-    print("Список заметок:")
+    print("Текущие заметки:")
     print(notes)
     note_del = 0
     delete = input("Введите имя или заголовок заметки которую желаете удалить: ") # переменная для сравнения
@@ -46,14 +46,15 @@ def delete():
                     break
                 elif yes_no == "да":
                     notes.pop(-1)
-                    print("Заметка удалена.")
+                    print("Заметка удалена. Остались следующие заметки")
+                    print(notes)
                     break
                 else:
                     print("Неверно введено значение, попробуйте снова.")
             except ValueError:
                 print("Неверный формат, попробуйте снова.")
 
-    print(notes)
+
 
 
 delete()

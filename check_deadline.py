@@ -17,7 +17,8 @@ while True:
 def scss(): # функция сравнения даты создания и даты истечения заметки
     dead_line = issue_date - today_date
     if dead_line.days < -4:
-        print(f"Заметка истекла {dead_line.days} дней назад.")
+        print(f"Заметка истекла {abs(dead_line.days)} дней назад.")
+        # abs - переводит из отрицательного значения в положительное
     elif dead_line.days > -5 and dead_line.days < -1:
         print(f"Заметка истекла {dead_line.days} дня назад.")
     elif dead_line.days == -1:

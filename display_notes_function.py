@@ -1,5 +1,5 @@
 from operator import itemgetter
-from colorama import Fore
+from colorama import Fore, init
 
 
 
@@ -33,22 +33,25 @@ notes = [
 
 
 
-def     all_notes(note_number = 1, string_namber = 1):
+def display_all_notes(note_number = 1):
     sorted_list = sorted(notes, key=itemgetter("issue_date"))
+    init(autoreset=True)
     for i in range(len(sorted_list)):
-        print(Fore.GREEN + "---------------------------------")
-        print(Fore.GREEN + f"Note №{note_number}")
+        print(Fore.RED + "---------------------------------")
+        print(Fore.YELLOW + f"Note №{note_number}")
         note_number = note_number + 1
+        string_namber = 1
         for k in sorted_list[i].items():
             print(Fore.GREEN + f"{string_namber})", *k)
             string_namber = string_namber + 1
-    if notes == []:
-        print("You don't have any saved notes.")
+    if sorted_list == []:
+        print(Fore.RED + "You don't have any saved notes.")
 
-all_notes()
+display_all_notes()
 
 
-def notes_signs(note_number = 1, string_namber = 1):
+def display_signs_notes(note_number = 1):
+    init(autoreset=True)
     notes_based_on = []
     based  = input(("Enter the search object (recommended name or status): "))
     for i in range(len(notes)):
@@ -58,15 +61,15 @@ def notes_signs(note_number = 1, string_namber = 1):
 
     sorted_list = sorted(notes_based_on, key=itemgetter("issue_date"))
     for i in range(len(sorted_list)):
-        print(Fore.GREEN + "---------------------------------")
-        print(Fore.GREEN + f"Note №{note_number}")
+        print(Fore.RED + "---------------------------------")
+        print(Fore.YELLOW + f"Note №{note_number}")
         note_number = note_number + 1
         string_namber = 1
 
         for k in sorted_list[i].items():
             print(Fore.GREEN + f"{string_namber})", *k)
             string_namber = string_namber + 1
-    if notes == []:
-        print("You don't have any saved notes.")
+    if sorted_list == []:
+        print(Fore.RED + "You don't have any saved notes.")
 
-notes_signs()
+display_signs_notes()

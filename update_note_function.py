@@ -91,82 +91,94 @@ def update_note():
             print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
             # нумерация строк (зеленая) и габариты таблицы
     update = ["1 - username", "2 - title", "3 - content", "4 - status", "5 - issue_date"]
-    search = input("Введите заголовок заметки которую желаете изменить или оставьте пустым чтобы закончить: ")
-    for i in range(len(notes)):  # цикл переборщик для поиска и сравнения
-        for k in notes[i].values():
-            if str.upper(k) == str.upper(search):  # действия в случае совпадения
-                print("Найдены следующие заметки:")
-                for s in notes[i].items():
-                    name, val = s
-                    print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+    stop = True
+    result = []
+    while stop == True:
+        search = input("Введите заголовок заметки которую желаете изменить или оставьте пустым чтобы закончить: ")
+        for i in range(len(notes)):  # цикл переборщик для поиска и сравнения
+            for k in notes[i].values():
+                if str.upper(k) == str.upper(search): # действия в случае совпадения
+                    result.append(notes[i])
+                    print("Найдены следующие заметки:")
+        if result == []:
+            print("заметка не найдена, попробуйте снова")
+        else:
+            for s in result[-1].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+                stop = False
 
-                while True:
-                    print(*update)
-                    replace = input('Выберите поле для внесения изменений \"1\" \"2\" \"3\" \"4\" \"5\": ')
-                    if replace == "1":
-                        notes[i]["username"] = input("Введите новое имя: ")
-                        print("Имя успешно изменено.")
-                        for s in notes[i].items():
-                            name, val = s
-                            print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
-                        print("Продолжить вносить изменения?")
-                        yes_no()
-                        if y_n == "да":
-                            continue
-                        else:
-                            break
-                    elif replace == "2":
-                        notes[i]["title"] = input("Введите новый заголовок: ")
-                        print("Заголовок успешно изменен.")
-                        for s in notes[i].items():
-                            name, val = s
-                            print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
-                        print("Продолжить вносить изменения?")
-                        yes_no()
-                        if y_n == "да":
-                            continue
-                        else:
-                            break
-                    elif replace == "3":
-                        notes[i]["content"] = input("Введите текст заметки: ")
-                        print("Заметка успешно изменена.")
-                        for s in notes[i].items():
-                            name, val = s
-                            print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
-                        print("Продолжить вносить изменения?")
-                        yes_no()
-                        if y_n == "да":
-                            continue
-                        else:
-                            break
-                    elif replace == "4":
-                        update_status()
-                        notes[i]["status"] = str(status)
-                        print("Статус заметки успещно изменен.")
-                        for s in notes[i].items():
-                            name, val = s
-                            print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
-                        print("Продолжить вносить изменения?")
-                        yes_no()
-                        if y_n == "да":
-                            continue
-                        else:
-                            break
-                    elif replace == "5":
-                        date()
-                        notes[i]["issue_date"] = str(issue_date)
-                        print("Дата истечения заметки успешно изменена.")
-                        for s in notes[i].items():
-                            name, val = s
-                            print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
-                        print("Продолжить вносить изменения?")
-                        yes_no()
-                        if y_n == "да":
-                            continue
-                        else:
-                            break
-                    else:
-                        print("Неверное значение. Выберите из предложенного списка.")
+
+
+
+
+    while True:
+        print(*update)
+        replace = input('Выберите поле для внесения изменений \"1\" \"2\" \"3\" \"4\" \"5\": ')
+        if replace == "1":
+            notes[i]["username"] = input("Введите новое имя: ")
+            print("Имя успешно изменено.")
+            for s in notes[i].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+            print("Продолжить вносить изменения?")
+            yes_no()
+            if y_n == "да":
+                continue
+            else:
+                break
+        elif replace == "2":
+            notes[i]["title"] = input("Введите новый заголовок: ")
+            print("Заголовок успешно изменен.")
+            for s in notes[i].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+            print("Продолжить вносить изменения?")
+            yes_no()
+            if y_n == "да":
+                continue
+            else:
+                break
+        elif replace == "3":
+            notes[i]["content"] = input("Введите текст заметки: ")
+            print("Заметка успешно изменена.")
+            for s in notes[i].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+            print("Продолжить вносить изменения?")
+            yes_no()
+            if y_n == "да":
+                continue
+            else:
+                break
+        elif replace == "4":
+            update_status()
+            notes[i]["status"] = str(status)
+            print("Статус заметки успещно изменен.")
+            for s in notes[i].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+            print("Продолжить вносить изменения?")
+            yes_no()
+            if y_n == "да":
+                continue
+            else:
+                break
+        elif replace == "5":
+            date()
+            notes[i]["issue_date"] = str(issue_date)
+            print("Дата истечения заметки успешно изменена.")
+            for s in notes[i].items():
+                name, val = s
+                print(Fore.GREEN + "{:<15} {:<30}".format(name, val))
+            print("Продолжить вносить изменения?")
+            yes_no()
+            if y_n == "да":
+                continue
+            else:
+                break
+        else:
+            print("Неверное значение. Выберите из предложенного списка.")
 
 
 

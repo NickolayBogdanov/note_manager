@@ -1,5 +1,7 @@
+from colorama import Fore, init
 notes = []
 def create_note():
+    init(autoreset=True)
     while True:
         print('Добро пожаловать в "Менеджер заметок"')
         yes_no = input('Желаете добавить заметку? \"да\" \"нет\" : ')
@@ -60,7 +62,18 @@ def create_note():
                 notes[-1]["issue_date"] = str(issue_date.strftime("%d-%m-%Y"))
                 print("Заметка создана успешно!")
                 print("Текущие заметки:")
-                print(notes)
+                for i in range(len(notes)):
+                    note_number = 1
+                    print(Fore.RED + "----------------------------------------------------")
+                    # разделительная линния (красная)
+                    print(Fore.YELLOW + f"Note №{note_number}")  # нумерация заметок (желтая)
+                    note_number = note_number + 1
+                    string_namber = 1
+                    for k in notes[i].items():
+                        name, val = k
+                        print(Fore.GREEN + f"{string_namber})", "{:<15} {:<30}".format(name, val))
+                        # нумерация строк (зеленая) и габариты таблицы
+                        string_namber = string_namber + 1
                 break
             else:
                 print("Неверно введено значение, попробуйте снова.")

@@ -35,10 +35,11 @@ def update_status():
     while True:
         try:
             status = status_base.get(int(input("Выберите статус заметки \"1\", \"2\" или \"3\": ")))
-            if  status != status_base.get(1) and status != status_base.get(2) and status != status_base.get(3):
+            if status is None:
                 status_base = {1: "Выполнено", 2: "В процессе", 3: "Отложено"}
                 print("неверно введено значение")
             else:
+                print("Стаус успешно изменен, текущий статус: ", (status))
                 break
         except ValueError:
             print("Неверный формат, попробуйте снова.")

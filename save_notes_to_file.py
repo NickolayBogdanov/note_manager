@@ -2,18 +2,18 @@ import yaml
 
 notes = [
     {
-        "username": "Pavel",
-        "title": "Business for tomorrow",
-        "content": "Wash the dishes, do your homework, go to the pool by 18:30",
-        "status": "In process",
+        "username": "Павел",
+        "title": "Дела на завтра",
+        "content": "Помыть посуду, сделать уроки, в бассейн к 18:30",
+        "status": "В процессе",
         "created_date": '12-01-25',
         "issue_date": '15-01-25',
     },
     {
-        "username": "Pavel",
-        "title": "Business for the day after tomorrow",
-        "content": "Take out the trash, walk the dog",
-        "status": "In process",
+        "username": "Павел",
+        "title": "Дела на послезавтра",
+        "content": "вынести мусор, погулять с собакой",
+        "status": "В процессе",
         "created_date": '11-01-25',
         "issue_date": '12-01-25',
     },
@@ -29,8 +29,7 @@ notes = [
 
 
 def save_notes_to_file(file = open(input("Введите название файла: "), mode='w', encoding='utf-8')):
-    notes_yaml = yaml.dump(notes)
-
+    notes_yaml = yaml.dump(notes, allow_unicode=True, sort_keys=False)
     file.write(notes_yaml)
     file.close()
     print("Фаил успешно записан.")

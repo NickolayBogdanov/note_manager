@@ -46,12 +46,12 @@ def search_notes(keyword=None, status=None):
             for k in range(len(notes_search)): # вывод данных в цветную таблицу с нумерацией заметок и строк
                 print(Fore.RED + "----------------------------------------------------")
                 print(Fore.YELLOW + f"Note №{note_number}")
-                note_number = note_number + 1
+                note_number += 1
                 string_namber = 1
                 for j in notes_search[k].items():
                     name, val = j
                     print(Fore.GREEN + f"{string_namber})", "{:<15} {:<30}".format(name, val))
-                    string_namber = string_namber + 1
+                    string_namber += 1
             break
         elif keyword != None and status == "":
             for i in range(len(notes)):
@@ -63,12 +63,12 @@ def search_notes(keyword=None, status=None):
             for k in range(len(notes_search)): # вывод данных в цветную таблицу с нумерацией заметок и строк
                 print(Fore.RED + "----------------------------------------------------")
                 print(Fore.YELLOW + f"Note №{note_number}")
-                note_number = note_number + 1
+                note_number += 1
                 string_namber = 1
                 for j in notes_search[k].items():
                     name, val = j
                     print(Fore.GREEN + f"{string_namber})", "{:<15} {:<30}".format(name, val))
-                    string_namber = string_namber + 1
+                    string_namber += 1
             break
         elif keyword == "" and status != None: # поиск по статусу
             for i in range(len(notes)):
@@ -79,12 +79,12 @@ def search_notes(keyword=None, status=None):
             for k in range(len(notes_search)):
                 print(Fore.RED + "----------------------------------------------------")
                 print(Fore.YELLOW + f"Note №{note_number}")
-                note_number = note_number + 1
+                note_number += 1
                 string_namber = 1
                 for j in notes_search[k].items():
                     name, val = j
                     print(Fore.GREEN + f"{string_namber})", "{:<15} {:<30}".format(name, val))
-                    string_namber = string_namber + 1
+                    string_namber += 1
             break
 
 search_notes(input("Please, entered keyword (username, title or content): "), input("Please, entered status: "))

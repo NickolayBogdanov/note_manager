@@ -1,5 +1,30 @@
 from colorama import Fore, init
-notes = []
+notes = [
+    {
+        "username": "Павел",
+        "title": "Дела на завтра",
+        "content": "Помыть посуду, сделать уроки, в бассейн к 18:30",
+        "status": "В процессе",
+        "created_date": '12-01-25',
+        "issue_date": '15-01-25',
+    },
+    {
+        "username": "Павел",
+        "title": "Дела на послезавтра",
+        "content": "вынести мусор, погулять с собакой",
+        "status": "В процессе",
+        "created_date": '11-01-25',
+        "issue_date": '12-01-25',
+    },
+    {
+        "username": "Николай",
+        "title": "Учеба",
+        "content": "Взять книги в библиотеке",
+        "status": "В процессе",
+        "created_date": '10-01-25',
+        "issue_date": '20-01-25',
+    }
+]
 def create_note():
     init(autoreset=True)
     while True:
@@ -62,12 +87,13 @@ def create_note():
                 notes[-1]["issue_date"] = str(issue_date.strftime("%d-%m-%Y"))
                 print("Заметка создана успешно!")
                 print("Текущие заметки:")
+                note_number = 1
                 for i in range(len(notes)):
-                    note_number = 1
+
                     print(Fore.RED + "----------------------------------------------------")
                     # разделительная линния (красная)
                     print(Fore.YELLOW + f"Note №{note_number}")  # нумерация заметок (желтая)
-                    note_number = note_number + 1
+                    note_number += 1
                     string_namber = 1
                     for k in notes[i].items():
                         name, val = k

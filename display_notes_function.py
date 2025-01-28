@@ -98,7 +98,7 @@ def display_notes(note_number = 1):
         for i in range(len(list_1)):
             print(Fore.RED + "----------------------------------------------------") # разделительная линния (красная)
             print(Fore.YELLOW + f"Note №{note_number}") # нумерация заметок (желтая)
-            note_number = note_number + 1
+            note_number += 1
             string_namber = 1
             for k in list_1[i].items():
                 name, val = k

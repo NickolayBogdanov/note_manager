@@ -99,7 +99,7 @@ def create_note():
                         name, val = k
                         print(Fore.GREEN + f"{string_namber})", "{:<15} {:<30}".format(name, val))
                         # нумерация строк (зеленая) и габариты таблицы
-                        string_namber = string_namber + 1
+                        string_namber += 1
                 break
             else:
                 print("Неверно введено значение, попробуйте снова.")

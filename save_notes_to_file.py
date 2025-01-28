@@ -18,21 +18,22 @@ notes = [
         "issue_date": '12-01-25',
     },
     {
-        "username": "Nickolay",
-        "title": "Study",
-        "content": "Get books from the library",
-        "status": "In process",
+        "username": "Николай",
+        "title": "Учеба",
+        "content": "Взять книги в библиотеке",
+        "status": "В процессе",
         "created_date": '10-01-25',
         "issue_date": '20-01-25',
     }
 ]
 
 
-def save_notes_to_file(file = open('notes.txt', mode='w', encoding='utf-8')):
+def save_notes_to_file(file = open(input("Введите название файла: "), mode='w', encoding='utf-8')):
     notes_yaml = yaml.dump(notes)
 
     file.write(notes_yaml)
     file.close()
+    print("Фаил успешно записан.")
 
 
 save_notes_to_file()

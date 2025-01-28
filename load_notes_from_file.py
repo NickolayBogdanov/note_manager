@@ -31,4 +31,5 @@ def load_notes_from_file():
             print(Fore.RED +"Не удалось декодировать фаил.")
         except PermissionError:
             print(Fore.RED +"Ошибка доступа, системный фаил.")
+    file.close()
 load_notes_from_file()

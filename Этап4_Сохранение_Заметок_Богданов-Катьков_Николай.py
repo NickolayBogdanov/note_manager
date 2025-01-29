@@ -28,11 +28,12 @@ notes = [
 ]
 
 
-def save_notes_to_file(file = open(input("Введите название файла: "), mode='w', encoding='utf-8')):
-    notes_yaml = yaml.dump(notes, allow_unicode=True, sort_keys=False)
-    file.write(notes_yaml)
-    file.close()
-    print("Фаил успешно записан.")
+def save_notes_to_file(filename = input("Введите название файла: ")):
+    with open(filename, mode='w', encoding='utf-8') as filename:
+        notes_yaml = yaml.dump(notes, allow_unicode=True, sort_keys=False)
+        filename.write(notes_yaml)
+        filename.close()
+        print("Фаил успешно записан.")
 
 
 save_notes_to_file()

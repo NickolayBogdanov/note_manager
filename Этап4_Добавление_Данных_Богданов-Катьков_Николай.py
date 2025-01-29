@@ -4,7 +4,7 @@ from colorama import Fore, init
 
 
 
-def append_notes_to_file(file = open(input("Введите название файла: "), mode='a', encoding='utf-8')):
+def append_notes_to_file(filename = open(input("Введите название файла: "), mode='a', encoding='utf-8')):
     notes = []
     init(autoreset=True)
     while True:
@@ -87,8 +87,9 @@ def append_notes_to_file(file = open(input("Введите название фа
         except ValueError:
             print("Неверный формат, попробуйте снова.")
     notes_yaml = yaml.dump(notes, allow_unicode=True, sort_keys=False)
-    file.write(notes_yaml)
-    file.close()
+    # конвертация в Yaml с поддержкой кодировки и отказом от сортировки ключей по алфавиту
+    filename.write(notes_yaml)
+    filename.close()
     print("Фаил успешно записан.")
 
 

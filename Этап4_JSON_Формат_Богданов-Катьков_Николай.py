@@ -28,7 +28,8 @@ notes = [
 ]
 
 
-def save_notes_json(file = open(input("Введите название файла: "), 'w', encoding='utf-8')):
-    json_file = json.dump(notes, file, indent=4, ensure_ascii=False)
-
+def save_notes_json(filename = input("Введите название файла: ")):
+    with open(filename + '.json', mode='w', encoding='utf-8') as file_name:
+        json.dump(notes, file_name, indent=4, ensure_ascii=False)
+# запись файла в формате Json
 save_notes_json()

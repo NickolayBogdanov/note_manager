@@ -1,12 +1,13 @@
 import yaml
 from colorama import Fore, init
 
-def load_notes_from_file(file_name = input("Введите название файла: ")):
+def load_notes_from_file(filename = input("Введите название файла: ")):
     init(autoreset=True)
     try:
-        with open(file_name, encoding='utf-8') as file:
+        with open(filename, mode='r', encoding='utf-8') as file_name:
+        # открытие файла в режиме чтения с кодировкой поддерживающей кириллицу
             while True:
-                notes = yaml.load(file, Loader=yaml.FullLoader)
+                notes = yaml.load(file_name, Loader=yaml.FullLoader) # загрузка данных из файла
                 if notes == None:
                     print("Фаил пуст.")
                     break
@@ -24,12 +25,12 @@ def load_notes_from_file(file_name = input("Введите название фа
                             # нумерация строк (зеленая) и габариты таблицы
                             string_namber = string_namber + 1
                     break
-        file.close()
+        file_name.close()
     except FileNotFoundError:
         print(Fore.RED + "Фаил не найден.")
-        file = open(file_name, "w", encoding='utf-8')
-        file.close()
-        print(f"Новый файл {file}, успешно создан.")
+        new_filename = open(filename, "w", encoding='utf-8')
+        new_filename.close()
+        print(f"Новый файл {new_filename}, успешно создан.")
     except Exception as fails:
         print(Fore.RED + f"Ошибка: {fails}")
 
